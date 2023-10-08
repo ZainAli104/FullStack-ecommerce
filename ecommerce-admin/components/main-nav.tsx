@@ -12,10 +12,15 @@ export const MainNav = ({ className, ...props }: React.HTMLAttributes<HTMLElemen
 
     const routes = [
         {
+            href: `/${storeId}`,
+            label: "Dashboard",
+            active: pathname === `/${storeId}`,
+        },
+        {
             href: `/${storeId}/settings`,
             label: "Settings",
             active: pathname === `/${storeId}/settings`,
-        }
+        },
     ];
 
     return (
