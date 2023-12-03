@@ -32,6 +32,5 @@ export const columns: ColumnDef<OrderColumn>[] = [
     {
         accessorKey: "isPaid",
         header: "Paid",
-        cell: ({row}) => <span>{row.original.isPaid ? "Yes" : "No"}</span>,
     }
 ];
