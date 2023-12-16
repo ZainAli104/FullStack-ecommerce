@@ -27,12 +27,12 @@ const Summary = () => {
 
     const onCheckout = async () => {
         if (items?.length === 0) return;
-        const response = await axios(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
+        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
              // @ts-ignore
             productIds: items?.map(item => item.id),
         });
 
-        window.location = response.data.uri;
+        window.location = response.data.url;
     };
 
     const totalPrice = items?.reduce((total, item) => {
