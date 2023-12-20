@@ -49,7 +49,7 @@ export async function POST(req: Request) {
             }
         });
 
-        const productIds = order.orderItems.map((orderItem) => orderItem.productId);
+        // const productIds = order.orderItems.map((orderItem) => orderItem.productId);
 
         // TODO: Update all products in the order to be archived
         // await prismadb.product.updateMany({

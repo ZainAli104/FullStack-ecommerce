@@ -16,19 +16,18 @@ const Summary = () => {
 
     useEffect(() => {
         if (searchParams.get("success")) {
-            toast.success("Order placed successfully.");
+            toast.success("Payment completed.");
             removeAll();
         }
 
         if (searchParams.get("canceled")) {
-            toast.error("Order canceled.");
+            toast.error("Payment canceled.");
         }
     }, [searchParams, removeAll]);
 
     const onCheckout = async () => {
         if (items?.length === 0) return;
         const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/checkout`, {
-             // @ts-ignore
             productIds: items?.map(item => item.id),
         });
 
