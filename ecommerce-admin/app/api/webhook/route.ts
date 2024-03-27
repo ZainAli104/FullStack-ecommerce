@@ -34,10 +34,16 @@ export async function POST(req: Request) {
 
     const addressString = addressComponents.filter(c => c !== null).join(", ");
 
-    if (event.type === "checkout.session.completed") {
+    if (event.type === "checkout.session.completed" && session?.metadata) {
+        const {projectId, orderId} = session.metadata;
+
+        if (projectId !== "alpha-store" && !orderId) {
+            return new NextResponse(null, {status: 200});
+        }
+
         const order = await prismadb.order.update({
             where: {
-                 id: session?.metadata?.orderId,
+                 id: orderId
             },
             data: {
                 isPaid: true,

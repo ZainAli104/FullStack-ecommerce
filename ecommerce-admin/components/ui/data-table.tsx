@@ -1,6 +1,5 @@
 "use client"
 
-
 import {useState} from "react";
 import {
     ColumnDef,
@@ -30,14 +29,10 @@ interface DataTableProps<TData, TValue> {
     searchKey: string
 }
 
-export function DataTable<TData, TValue>({
-                                             columns,
-                                             data,
-                                             searchKey,
-                                         }: DataTableProps<TData, TValue>) {
+export function DataTable<TData, TValue>({columns, data, searchKey}: DataTableProps<TData, TValue>) {
     const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
         []
-    )
+    );
 
     const table = useReactTable({
         data,
