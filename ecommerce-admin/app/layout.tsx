@@ -6,6 +6,7 @@ import {ClerkProvider} from '@clerk/nextjs'
 import {ModalProvider} from "@/providers/modal-provider";
 import {ToastProvider} from "@/providers/toast-provider";
 import {ThemeProvider} from "@/providers/theme-provider";
+import NextNProgressClient from "@/components/ui/next-progress";
 
 import './globals.css'
 
@@ -22,6 +23,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
             <html lang="en">
             <body className={inter.className}>
             <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+                <NextNProgressClient />
                 <ToastProvider/>
                 <ModalProvider/>
                 {children}
